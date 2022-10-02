@@ -1,0 +1,32 @@
+<MyScreenManager>
+    MyScreen1:
+    MyScreen2:
+
+<MyScreen1>
+    name: "screen_1"
+
+    MDRectangleFlatButton:
+        text:"Next screen"
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        on_press : 
+            root.manager.current = "screen_2"
+            root.manager.transition.direction = "left"
+
+<MyScreen2>
+    name: "screen_2" 
+    username_input: username_input
+    MDTextField:
+        id: username_input
+        text :"Username"
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        size_hint_x : None
+        width:300
+        helper_text:"Enter your username"
+        helper_text_mode:"persistent"
+        icon_right:"android"
+
+    MDRectangleFlatButton:
+        text:"Submit"
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        on_press :           
+            root.show_username()
